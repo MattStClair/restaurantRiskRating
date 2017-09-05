@@ -1,0 +1,23 @@
+{
+  "name": "restaurantriskrating",
+  "version": "1.0.0",
+  "description": "find out if a restaurant is gross",
+  "main": "server.js",
+  "scripts": {
+    "test": "none",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattStClair/restaurantRiskRating.git"
+  },
+  "keywords": [
+    "food"
+  ],
+  "author": "Erik, Matt, Ron, Phil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MattStClair/restaurantRiskRating/issues"
+  },
+  "homepage": "https://github.com/MattStClair/restaurantRiskRating#readme"
+}
