@@ -1,0 +1,25 @@
+body {
+  line-height: 1.5;
+  font-size: 100%;
+  color: #B7B7B7;
+  background-color: #707070;
+}
+
+main {
+  margin: auto;
+  width: 90%;
+}
+
+/*LINKS*/
+a, a:link, a:active {
+  text-decoration: none;
+  color: #607625;
+}
+
+a:hover, a:focus {
+  color: #B7B7B7;
+}
+
+a:visited {
+  color: #832F24;
+}
