@@ -17,5 +17,5 @@ function proxyGitHub(request, response) {
 app.get('/github/*', proxyGitHub);
 
 app.listen(PORT, function(){
-  console.log(`Portfolio is listening on port ${PORT}`);
+  console.log(`Gross is listening on port ${PORT}`);
 });
