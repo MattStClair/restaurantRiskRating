@@ -1,10 +1,12 @@
 #mini-menu {
+  margin-right: 1em;
   color: #607625;
   font-size: 2em;
 }
 
 .main-nav {
   padding: 0.1em;
+  float: right;
 }
 
 .main-nav ul {
@@ -23,8 +25,18 @@
   font-size: 1.5em;
   padding: .5em .2em;
   border-bottom: 1px solid #ccc;
-  color: #607625
+  color: #bc170f;
 }
+
+.logo{
+  text-align: center; 
+}
+
+.profPic{
+max-width: 20%;
+max-height: 20%;
+}
+
 
 
 footer {
