@@ -3,47 +3,62 @@
 var app = app || {};
 
 (function(module){
+  let latitude = 0;
+  let longitude = 0;
 
-var stylesArray = [{
-  featureType: 'all',
-  stylers: [{
-    hue: '#00ffe6'
+
+  function getLocation(){
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(function (position){
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        console.log(latitude, longitude);
+      });
+    } else {
+      alert(`Sorry your browser does not support geolocationing`);
+    }
+  }
+  getLocation();
+  var stylesArray = [{
+    featureType: 'all',
+    stylers: [{
+      hue: '#00ffe6'
+    },
+    {
+      saturation: -20
+    }
+    ]
   },
   {
-    saturation: -20
-  }
-]
-},
-{
-  featureType: 'road',
-  elementType: 'geometry',
-  stylers: [{
-    lightness: 100
+    featureType: 'road',
+    elementType: 'geometry',
+    stylers: [{
+      lightness: 100
+    },
+    {
+      visibility: 'simplified'
+    }
+    ]
   },
   {
-    visibility: 'simplified'
+    featureType: 'road',
+    elementType: 'labels',
+    stylers: [{
+      visibility: 'off'
+    }]
   }
-]
-},
-{
-  featureType: 'road',
-  elementType: 'labels',
-  stylers: [{
-    visibility: 'off'
-  }]
-}
-];
+  ];
 
-var mapOptions = {
-  zoom: 15,
-  styles: stylesArray,
-  center: new google.maps.LatLng(47.618217, -122.351832),
-  mapTypeId: google.maps.MapTypeId.STREET,
-  zoomControl: true,
-  zoomControlOptions: {
-    position: google.maps.ControlPosition.RIGHT_CENTER
+  var mapOptions = {
+    zoom: 15,
+    styles: stylesArray,
+    center: new google.maps.LatLng( latitude, longitude || 47.618217, -122.351832),
+    mapTypeId: google.maps.MapTypeId.STREET,
+    zoomControl: true,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_CENTER
+    }
   }
-}
 
 var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
@@ -81,4 +96,4 @@ $.get('/search')
   })
 })
 
-})(app); 
+})(app);
