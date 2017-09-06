@@ -21,6 +21,7 @@ var app = app || {};
   }
   getLocation();
 
+
   var stylesArray = [{
     featureType: 'all',
     stylers: [{
