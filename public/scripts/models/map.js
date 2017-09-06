@@ -55,7 +55,7 @@ var app = app || {};
     zoom: 15,
     styles: stylesArray,
 
-    center: new google.maps.LatLng( latitude, longitude || 47.618217, -122.351832), 
+    center: new google.maps.LatLng( latitude, longitude),
 
     mapTypeId: google.maps.MapTypeId.STREET,
     zoomControl: true,
@@ -88,7 +88,7 @@ google.maps.event.addDomListener(window, 'resize', function() {
       var marker = new google.maps.Marker(markerOptions);
       marker.setMap(map);
 
-     
+
 
     var infoWindowOptions = {
       content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
