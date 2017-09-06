@@ -81,4 +81,41 @@ $.get('/search')
   })
 })
 
-})(app); 
+//----------------------map icons---------------------------------------------//
+
+
+   var iconBase = '/../images/';
+   var icons = {
+  parking: {
+    icon: iconBase + 'happyEmoji.jpeg'
+   },
+   library: {
+    icon: iconBase + 'library_maps.png'
+    },
+    info: {
+    icon: iconBase + 'info-i_maps.png'
+   }
+  };
+
+
+
+        var features = [
+          {
+            position: new google.maps.LatLng(47.618217, -122.351832),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(47.818217, -122.951832),
+            type: 'library'
+          }
+        ];
+
+        // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+        });
+
+})(app);
