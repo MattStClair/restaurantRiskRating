@@ -6,6 +6,7 @@ var app = app || {};
   aboutController.index = () => {
 
     $('#about').show().siblings().hide();
+    $('#logo').show();
   };
   module.aboutController = aboutController;
 })(app);

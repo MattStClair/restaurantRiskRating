@@ -1,19 +1,27 @@
 #mini-menu {
+  margin-top: 1em;
   margin-right: 1em;
-  color: #607625;
+  color: #B7B7B7;
   font-size: 2em;
+  float:right;
 }
 
 .main-nav {
   padding: 0.1em;
-  float: right;
+}
+
+.main-nav h2 {
+  margin-left: 1em;
+  display: none;
+  float: left;
 }
 
 .main-nav ul {
+  margin-right: 1em;
   display: none;
   padding: 0;
   list-style: none;
-  clear: both;
+  float: right;
 }
 
 .main-nav:hover ul {
@@ -23,21 +31,18 @@
 .main-nav li {
   margin-right: .4em;
   font-size: 1.5em;
+  font-weight: bold;
   padding: .5em .2em;
   border-bottom: 1px solid #ccc;
-  color: #bc170f;
-}
-
-.logo{
-  text-align: center;
+  color: #B7B7B7;
 }
 
 .neon {
   text-align: center;
-  font-size: 7em;
+  font-size: 5em;
   margin: 20px 0 20px 0;
   color: #FF1177;
-  font-family: Pacifico;
+  font-family: 'Quicksand';
 }
 
 .neon a {
@@ -64,13 +69,18 @@
   }
 }
 
-
-
 .profPic{
-max-width: 20%;
-max-height: 20%;
+  max-width: 20%;
+  max-height: 20%;
 }
 
+#main article {
+  display: inline;
+}
+
+#main article p {
+  display: block;
+}
 
 
 footer {
@@ -86,6 +96,12 @@ footer {
 
   .main-nav {
     padding: .2em .2em .2em 2em;
+    display: inline;
+  }
+
+  .main-nav h2 {
+    display: inline-block;
+    font-family: 'Nixie One';
   }
 
   .main-nav ul {
