@@ -9,7 +9,7 @@ const requestProxy = require('express-request-proxy');
 app.use(express.static('./public'));
 
 const myData = {
-  '$select': `name, phone, latitude, longitude, grade, inspection_date`,
+  '$select': `name, phone, latitude, longitude, grade, inspection_date, inspection_result`,
   '$order': 'inspection_date DESC',
   // '$where': `latitude < 47.61 AND latitude > 47.60
   //               AND

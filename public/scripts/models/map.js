@@ -70,7 +70,7 @@ $.get('/search')
     marker.setMap(map);
 
     var infoWindowOptions = {
-      content: store.name
+      content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
     };
 
     var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
@@ -86,26 +86,21 @@ $.get('/search')
 
    var iconBase = '/../images/';
    var icons = {
-  parking: {
-    icon: iconBase + 'happyEmoji.jpeg'
-   },
-   library: {
-    icon: iconBase + 'library_maps.png'
-    },
-    info: {
-    icon: iconBase + 'info-i_maps.png'
-   }
+    good: {
+    icon: iconBase + 'happy.png'
+     },
+     bad: {
+     icon: iconBase + 'sick.png'
+     }
   };
 
-
-
-        var features = [
+    var features = [
           {
             position: new google.maps.LatLng(47.618217, -122.351832),
-            type: 'parking'
+            type: 'good'
           }, {
-            position: new google.maps.LatLng(47.818217, -122.951832),
-            type: 'library'
+            position: new google.maps.LatLng(47.628217, -122.371832),
+            type: 'bad'
           }
         ];
 
