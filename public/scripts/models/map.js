@@ -7,6 +7,7 @@ var app = app || {};
     let latitude = 0;
     let longitude = 0;
 
+    var iconBase = '/../images/';
 
   function getLocation(){
     if (navigator.geolocation){
@@ -84,10 +85,13 @@ var app = app || {};
 
     data.forEach(function(store) {
 
+    
       var markerOptions = {
         position: new google.maps.LatLng(parseFloat(store.latitude),parseFloat(store.longitude)),
-        map: map
+        map: map,
+        icon: iconBase + 'happy.png'
       };
+
       var marker = new google.maps.Marker(markerOptions);
       marker.setMap(map);
 
@@ -114,7 +118,7 @@ var app = app || {};
     good: {
     icon: iconBase + 'happy.png'
      },
-     bad: {
+     dumb: {
      icon: iconBase + 'sick.png'
      }
   };
@@ -125,7 +129,7 @@ var app = app || {};
             type: 'good'
           }, {
             position: new google.maps.LatLng(47.628217, -122.371832),
-            type: 'bad'
+            type: 'dumb'
           }
         ];
 
