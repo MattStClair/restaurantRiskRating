@@ -107,6 +107,14 @@
   font-size: 20px;
 }
 
+#filter {
+  display: inline;
+  border: 1px solid #FF0000;
+  text-align: center;
+  color: #FF0000;
+  border-radius: 5px;
+}
+
 
 .profPic{
   max-width: 20%;

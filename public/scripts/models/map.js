@@ -74,8 +74,10 @@ google.maps.event.addDomListener(window, 'resize', function() {
 });
 
 
+
   $.get('/search')
 .then((data) => {
+
 
     data.forEach(function(store) {
 
