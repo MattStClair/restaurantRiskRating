@@ -58,7 +58,7 @@ const myData = {
   '$limit': 20,
   // 'grade': '1',
   'zip_code': 98121,
-  '$$app_token': kcToken
+  '$$app_token': process.env.KC_TOKEN
 };
 
 
