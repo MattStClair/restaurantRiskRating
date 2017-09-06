@@ -60,19 +60,19 @@ var app = app || {};
     }
   }
 
-var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-  google.maps.event.addDomListener(window, 'resize', function() {
+google.maps.event.addDomListener(window, 'resize', function() {
   var center = map.getCenter();
   google.maps.event.trigger(map, 'resize');
   map.setCenter(center);
-  });
+});
 
 
 
 //to-do: add function to deal with markers
 
-$.get('/search')
+  $.get('/search')
 .then((data) => {
 
   data.forEach(function(store) {
