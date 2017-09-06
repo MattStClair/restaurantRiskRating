@@ -56,8 +56,10 @@ var app = app || {};
 
 
 
+
   $.get('/search')
   .then((data) => {
+
 
     data.forEach(function(store) {
 
