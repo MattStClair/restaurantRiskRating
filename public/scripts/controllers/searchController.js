@@ -6,6 +6,7 @@ var app = app || {};
   searchController.index = () => {
 
     $('#search').show().siblings().hide();
+    $('#logo').show();
   };
   module.searchController = searchController;
 })(app);
