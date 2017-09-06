@@ -4,6 +4,23 @@ var app = app || {};
 
 (function(module){
 
+  let latitude = 0;
+  let longitude = 0;
+
+
+  function getLocation(){
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(function (position){
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        console.log(latitude, longitude);
+      });
+    } else {
+      alert(`Sorry your browser does not support geolocationing`);
+    }
+  }
+  getLocation();
+
   var stylesArray = [{
     featureType: 'all',
     stylers: [{
@@ -37,7 +54,9 @@ var app = app || {};
   var mapOptions = {
     zoom: 15,
     styles: stylesArray,
-    center: new google.maps.LatLng(47.618217, -122.351832),
+
+    center: new google.maps.LatLng( latitude, longitude || 47.618217, -122.351832), 
+
     mapTypeId: google.maps.MapTypeId.STREET,
     zoomControl: true,
     zoomControlOptions: {
@@ -47,17 +66,16 @@ var app = app || {};
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    google.maps.event.addDomListener(window, 'resize', function() {
-    var center = map.getCenter();
-    google.maps.event.trigger(map, 'resize');
-    map.setCenter(center);
-    });
 
-
+google.maps.event.addDomListener(window, 'resize', function() {
+  var center = map.getCenter();
+  google.maps.event.trigger(map, 'resize');
+  map.setCenter(center);
+});
 
 
   $.get('/search')
-  .then((data) => {
+.then((data) => {
 
     data.forEach(function(store) {
 
@@ -83,7 +101,6 @@ var app = app || {};
   })
 
 
-=======
 //----------------------map icons---------------------------------------------//
 
 
@@ -114,6 +131,7 @@ var app = app || {};
             icon: icons[feature.type].icon,
             map: map
           });
-        });
+        }); //
+
 
 })(app);
