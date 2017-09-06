@@ -1,14 +1,13 @@
 #mini-menu {
   margin-top: 1em;
   margin-right: 1em;
-  color: #607625;
+  color: #B7B7B7;
   font-size: 2em;
   float:right;
 }
 
 .main-nav {
   padding: 0.1em;
-  /*float: right;*/
 }
 
 .main-nav h2 {
@@ -32,15 +31,11 @@
 .main-nav li {
   margin-right: .4em;
   font-size: 1.5em;
+  font-weight: bold;
   padding: .5em .2em;
   border-bottom: 1px solid #ccc;
-  color: #607625;
+  color: #B7B7B7;
 }
-
-.logo{
-  text-align: center;
-}
-
 
 .neon {
   text-align: center;
@@ -74,14 +69,18 @@
   }
 }
 
-
-
-
 .profPic{
-max-width: 20%;
-max-height: 20%;
+  max-width: 20%;
+  max-height: 20%;
 }
 
+#main article {
+  display: inline;
+}
+
+#main article p {
+  display: block;
+}
 
 
 footer {
@@ -102,7 +101,6 @@ footer {
 
   .main-nav h2 {
     display: inline-block;
-    /*float: left;*/
     font-family: 'Nixie One';
   }
 
@@ -113,7 +111,7 @@ footer {
   .main-nav ul li {
     display: inline;
     border-bottom: none;
-    color: #607625;
+    color: #B7B7B7;
   }
 
   .main-nav ul li:hover a {

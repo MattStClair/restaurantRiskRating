@@ -3,6 +3,9 @@ body {
   font-size: 100%;
   color: #B7B7B7;
   background-color: #1A1A1A;
+  background-image: url('/images/wall.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 main {
@@ -15,7 +18,7 @@ main {
 a, a:link, a:active {
   font-family: 'Nixie One';
   text-decoration: none;
-  color: #607625;
+  color: #B7B7B7;
 }
 
 a:hover, a:focus {
@@ -23,5 +26,5 @@ a:hover, a:focus {
 }
 
 a:visited {
-  color: #607625;
+  color: #B7B7B7;
 }
