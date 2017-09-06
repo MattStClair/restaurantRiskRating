@@ -1,4 +1,9 @@
 'use strict';
+
+var app = app || {};
+
+(function(module){
+
 var stylesArray = [{
   featureType: 'all',
   stylers: [{
@@ -7,7 +12,7 @@ var stylesArray = [{
   {
     saturation: -20
   }
-  ]
+]
 },
 {
   featureType: 'road',
@@ -18,7 +23,7 @@ var stylesArray = [{
   {
     visibility: 'simplified'
   }
-  ]
+]
 },
 {
   featureType: 'road',
@@ -42,52 +47,38 @@ var mapOptions = {
 
 var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-google.maps.event.addDomListener(window, 'resize', function() {
+  google.maps.event.addDomListener(window, 'resize', function() {
   var center = map.getCenter();
   google.maps.event.trigger(map, 'resize');
   map.setCenter(center);
-});
-
-const myData = {
-  '$select': `name, phone, latitude, longitude, grade, inspection_date`,
-  '$order': 'inspection_date DESC',
-  // '$where': `latitude < 47.61 AND latitude > 47.60
-  //               AND
-  //               longitude < -122.2 AND longitude > -122.3
-  //               `,
-  '$limit': 20,
-  // 'grade': '1',
-  'zip_code': 98121,
-  '$$app_token': process.env.KC_TOKEN
-};
+  });
 
 
-$.ajax({
-  url: 'https://data.kingcounty.gov/resource/gkhn-e8mn.json',
-  type: 'GET',
-  data: myData,
-})
-  .done((data) => {
 
-    data.forEach(function(store) {
+//to-do: add function to deal with markers
 
-var markerOptions = {
-    position: new google.maps.LatLng(parseFloat(store.latitude),parseFloat(store.longitude)),
-    map: map
-};
-var marker = new google.maps.Marker(markerOptions);
-marker.setMap(map);
+$.get('/search')
+.then((data) => {
 
-var infoWindowOptions = {
-    content: store.name
-};
+  data.forEach(function(store) {
 
-var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-google.maps.event.addListener(marker,'click',function(e){
+    var markerOptions = {
+      position: new google.maps.LatLng(parseFloat(store.latitude),parseFloat(store.longitude)),
+      map: map
+    };
+    var marker = new google.maps.Marker(markerOptions);
+    marker.setMap(map);
 
-  infoWindow.open(map, marker);
+    var infoWindowOptions = {
+      content: store.name
+    };
 
-});
+    var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+    google.maps.event.addListener(marker,'click',function(e){
 
-    })
+      infoWindow.open(map, marker);
+    });
   })
+})
+
+})(app); 
