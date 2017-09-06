@@ -41,12 +41,12 @@
   text-align: center;
   font-size: 5em;
   margin: 20px 0 20px 0;
-  color: #FF1177;
+  color: #FF0000;
   font-family: 'Quicksand';
 }
 
 .neon a {
-  color: #FF1177;
+  color: #FF0000;
   -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
   -moz-animation: neon2 1.5s ease-in-out infinite alternate;
   animation: neon2 1.5s ease-in-out infinite alternate;
@@ -62,12 +62,51 @@
 
 @-webkit-keyframes neon2 {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF0000, 0 0 70px #FF0000, 0 0 80px #FF0000, 0 0 100px #FF0000, 0 0 150px #FF0000;
   }
   to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF0000, 0 0 35px #FF0000, 0 0 40px #FF0000, 0 0 50px #FF0000, 0 0 75px #FF0000;
   }
 }
+
+#wrap {
+  align-content: center;
+  display: inline;
+  width: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.searchTerm {
+  float: left;
+  width: 50%;
+  border: 3px solid #FF0000;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  display: inline;
+  right: -50px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #FF0000;
+  background: #FF0000;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
 
 .profPic{
   max-width: 20%;
