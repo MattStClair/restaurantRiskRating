@@ -7,6 +7,7 @@ var app = app || {};
 
     $('#search').show().siblings().hide();
     $('#logo').show();
+    $('#wrap').show();
   };
   module.searchController = searchController;
 })(app);
