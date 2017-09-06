@@ -4,8 +4,8 @@ var app = app || {};
 
 (function(module){
 
-  let latitude = 0;
-  let longitude = 0;
+    let latitude = 0;
+    let longitude = 0;
 
 
   function getLocation(){
@@ -14,6 +14,9 @@ var app = app || {};
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
         console.log(latitude, longitude);
+        map.setCenter(new google.maps.LatLng( latitude, longitude));
+
+
       });
     } else {
       alert(`Sorry your browser does not support geolocationing`);
@@ -67,7 +70,7 @@ var app = app || {};
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
 
-google.maps.event.addDomListener(window, 'resize', function() {
+  google.maps.event.addDomListener(window, 'resize', function() {
   var center = map.getCenter();
   google.maps.event.trigger(map, 'resize');
   map.setCenter(center);
