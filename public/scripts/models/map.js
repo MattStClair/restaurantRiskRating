@@ -164,11 +164,16 @@ var app = app || {};
     var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
     google.maps.event.addListener(marker,'click',function(e){
 
-      infoWindow.open(map, marker);
+    infoWindow.open(map, marker);
+
+    var legend = document.getElementById('legend');
+    legend.appendChild(div);
+
     });
       }
     })
 })
 
+map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
 })(app);
