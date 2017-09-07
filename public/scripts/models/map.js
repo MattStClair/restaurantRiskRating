@@ -126,6 +126,46 @@ var app = app || {};
 
       infoWindow.open(map, marker);
     });
+    break;
+    case 'Complete':
+    var markerOptions = {
+      position: new google.maps.LatLng(parseFloat(store.latitude),parseFloat(store.longitude)),
+      map: map,
+      icon: iconBase + 'complete.png'
+    };
+
+    var marker = new google.maps.Marker(markerOptions);
+    marker.setMap(map);
+
+    var infoWindowOptions = {
+    content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
+  };
+
+    var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+    google.maps.event.addListener(marker,'click',function(e){
+
+      infoWindow.open(map, marker);
+    });
+    break;
+    case 'Incomplete':
+    var markerOptions = {
+      position: new google.maps.LatLng(parseFloat(store.latitude),parseFloat(store.longitude)),
+      map: map,
+      icon: iconBase + 'incomplete.png'
+    };
+
+    var marker = new google.maps.Marker(markerOptions);
+    marker.setMap(map);
+
+    var infoWindowOptions = {
+    content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
+  };
+
+    var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+    google.maps.event.addListener(marker,'click',function(e){
+
+      infoWindow.open(map, marker);
+    });
       }
     })
 })
