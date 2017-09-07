@@ -28,6 +28,15 @@
   box-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px #FF0000, 0 0 10px #FF0000, 0 0 11px #FF0000, 0 0 15px #FF0000, 0 0 50px #FF0000;
 }
 
+#legend {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    padding: 10px;
+    color: black; 
+    margin: 10px;
+    border: 3px solid #000;
+  }
+
 @media screen and (min-width: 550px) {
   #about article {
     width: 48%;
