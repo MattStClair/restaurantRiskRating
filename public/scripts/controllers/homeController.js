@@ -7,7 +7,7 @@ var app = app || {};
 
     $('#home').show().siblings().hide();
     $('#logo').show();
-    $('#wrap').show();
+    $('#narrow').show();
   };
   module.homeController = homeController;
 })(app);

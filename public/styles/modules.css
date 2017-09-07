@@ -69,6 +69,11 @@
   }
 }
 
+.narrow {
+  display: inline;
+  align-items: center;
+}
+
 #wrap {
   align-content: center;
   display: inline;
@@ -108,6 +113,14 @@
 }
 
 #filter {
+  display: inline;
+  border: 1px solid #FF0000;
+  text-align: center;
+  color: #FF0000;
+  border-radius: 5px;
+}
+
+#resultsNum {
   display: inline;
   border: 1px solid #FF0000;
   text-align: center;
