@@ -46,28 +46,39 @@
 
     <section id="home">
       <h1>Welcome to Is It Gross?</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+      <p>An app that uses King County's food establishment inspection data and plots on a google map the inspection results as emojis.</p>
+      <p>The app allows users to query their results by rating("Satisfactory" or "Unsatisfactory") and location. </p>
     </section>
 
 
-    <div id="wrap">
-      <h2>Search to Find If Its Gross</h2>
-      <div class="search">
-        <input type="text" class="searchTerm" placeholder="Search For A Rating">
-        <button type="submit" class="searchButton">
-            <i class="fa fa-search"></i>
-          </button>
-      </div>
-    </div>
 
     <section id="search">
-      <select id="filter">
-          <option value="all">All</option>
-          <option value="good">Good</option>
-          <option value="bad">Bad</option>
+
+      <div class="narrow">
+      <h2>Search to Find If Its Gross</h2>
+
+        <select id="resultsNum">
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="75">75</option>
         </select>
 
+        <select id="filter">
+            <option value="all">All</option>
+            <option value="good">Good</option>
+            <option value="bad">Bad</option>
+        </select>
+
+        <div id="wrap">
+          <div class="search">
+            <input type="text" class="searchTerm" placeholder="Enter a Zip Code">
+          </div>
+        </div>
+
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
 
       <div id="map"></div>
       <div id="legend"><h3>Ratings</h3>
