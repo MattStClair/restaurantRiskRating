@@ -121,15 +121,6 @@
   max-height: 20%;
 }
 
-#main article {
-  display: inline;
-}
-
-#main article p {
-  display: block;
-}
-
-
 footer {
   display: inline;
   margin-top: 6em;
