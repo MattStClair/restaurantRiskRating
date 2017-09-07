@@ -31,9 +31,12 @@ function proxyGitHub(request, response) {
   }))(request, response);
 }
 
-
-
 app.get('/search', proxyGitHub);
+
+
+app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
+
+
 
 app.listen(PORT, function(){
   console.log(`Gross is listening on port ${PORT}`);
