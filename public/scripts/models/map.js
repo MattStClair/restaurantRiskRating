@@ -25,6 +25,7 @@ var app = app || {};
   }
   getLocation();
 
+
   var stylesArray = [{
     featureType: 'all',
     stylers: [{
@@ -89,7 +90,7 @@ var app = app || {};
       var markerOptions = {
         position: new google.maps.LatLng(parseFloat(store.latitude),parseFloat(store.longitude)),
         map: map,
-        icon: iconBase + 'happy.png'
+        icon: iconBase + 'sick.png'
       };
 
       var marker = new google.maps.Marker(markerOptions);
@@ -110,7 +111,7 @@ var app = app || {};
     var markerOptions = {
       position: new google.maps.LatLng(parseFloat(store.latitude),parseFloat(store.longitude)),
       map: map,
-      icon: iconBase + 'sick.png'
+      icon: iconBase + 'happy.png'
     };
 
     var marker = new google.maps.Marker(markerOptions);
