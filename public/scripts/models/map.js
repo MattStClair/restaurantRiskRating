@@ -7,6 +7,7 @@ var app = app || {};
     let latitude = 0;
     let longitude = 0;
 
+    var iconBase = '/../images/';
 
   function getLocation(){
     if (navigator.geolocation){
@@ -84,15 +85,16 @@ var app = app || {};
 
 
     data.forEach(function(store) {
-
+      switch (store.inspection_result){
+            case 'Unsatisfactory':
       var markerOptions = {
         position: new google.maps.LatLng(parseFloat(store.latitude),parseFloat(store.longitude)),
-        map: map
+        map: map,
+        icon: iconBase + 'happy.png'
       };
+
       var marker = new google.maps.Marker(markerOptions);
       marker.setMap(map);
-
-
 
     var infoWindowOptions = {
       content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
@@ -103,41 +105,63 @@ var app = app || {};
 
         infoWindow.open(map, marker);
       });
+
+    break;
+    case 'Satisfactory':
+    var markerOptions = {
+      position: new google.maps.LatLng(parseFloat(store.latitude),parseFloat(store.longitude)),
+      map: map,
+      icon: iconBase + 'sick.png'
+    };
+
+    var marker = new google.maps.Marker(markerOptions);
+    marker.setMap(map);
+
+  var infoWindowOptions = {
+    content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
+  };
+
+    var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+    google.maps.event.addListener(marker,'click',function(e){
+
+      infoWindow.open(map, marker);
+    });
+      }
     })
-  })
+})
 
 
 //----------------------map icons---------------------------------------------//
-
-
-   var iconBase = '/../images/';
-   var icons = {
-    good: {
-    icon: iconBase + 'happy.png'
-     },
-     bad: {
-     icon: iconBase + 'sick.png'
-     }
-  };
-
-    var features = [
-          {
-            position: new google.maps.LatLng(47.618217, -122.351832),
-            type: 'good'
-          }, {
-            position: new google.maps.LatLng(47.628217, -122.371832),
-            type: 'bad'
-          }
-        ];
-
-        // Create markers.
-        features.forEach(function(feature) {
-          var marker = new google.maps.Marker({
-            position: feature.position,
-            icon: icons[feature.type].icon,
-            map: map
-          });
-        }); //
+  //
+  //
+  //  var iconBase = '/../images/';
+  //  var icons = {
+  //   good: {
+  //   icon: iconBase + 'happy.png'
+  //    },
+  //    dumb: {
+  //    icon: iconBase + 'sick.png'
+  //    }
+  // };
+  //
+  //   var features = [
+  //         {
+  //           position: new google.maps.LatLng(47.618217, -122.351832),
+  //           type: 'good'
+  //         }, {
+  //           position: new google.maps.LatLng(47.628217, -122.371832),
+  //           type: 'dumb'
+  //         }
+  //       ];
+  //
+  //       // Create markers.
+  //       features.forEach(function(feature) {
+  //         var marker = new google.maps.Marker({
+  //           position: feature.position,
+  //           icon: icons[feature.type].icon,
+  //           map: map
+  //         });
+  //       }); //
 
 
 })(app);
