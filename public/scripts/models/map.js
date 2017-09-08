@@ -4,6 +4,8 @@ var app = app || {};
 
 (function(module){
 
+  const googleMaps = {};
+
     let latitude = 0;//default value
     let longitude = 0;
 
@@ -72,17 +74,21 @@ var app = app || {};
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
 
+
   google.maps.event.addDomListener(window, 'resize', function() {
   var center = map.getCenter();
   google.maps.event.trigger(map, 'resize');
   map.setCenter(center);
 });
 
+  var satMarkers = [];
+  var unsatMarkers = [];
+  var completeMarkers = [];
+  var uncompleteMarkers = [];
 
 
   $.get('/search')
 .then((data) => {
-
 
     data.forEach(function(store) {
       switch (store.inspection_result){
@@ -94,7 +100,8 @@ var app = app || {};
       };
 
       var marker = new google.maps.Marker(markerOptions);
-      marker.setMap(map);
+      //marker.setMap(map);
+      unsatMarkers.push(marker);
 
     var infoWindowOptions = {
       content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
@@ -115,7 +122,8 @@ var app = app || {};
     };
 
     var marker = new google.maps.Marker(markerOptions);
-    marker.setMap(map);
+    //marker.setMap(map);
+    satMarkers.push(marker);
 
   var infoWindowOptions = {
     content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
@@ -135,8 +143,8 @@ var app = app || {};
     };
 
     var marker = new google.maps.Marker(markerOptions);
-    marker.setMap(map);
-
+    //marker.setMap(map);
+    completeMarkers.push(marker);
     var infoWindowOptions = {
     content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
   };
@@ -155,7 +163,8 @@ var app = app || {};
     };
 
     var marker = new google.maps.Marker(markerOptions);
-    marker.setMap(map);
+    //marker.setMap(map);
+    uncompleteMarkers.push(marker);
 
     var infoWindowOptions = {
     content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
@@ -174,6 +183,75 @@ var app = app || {};
     })
 })
 
-map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
+ console.log(completeMarkers);
+
+
+  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+
+  googleMaps.clear = function() {
+
+    satMarkers.forEach(function(marker){
+      marker.setVisible(false);
+    })
+
+    unsatMarkers.forEach(function(marker){
+      marker.setVisible(false);
+    })
+    completeMarkers.forEach(function(marker){
+      marker.setVisible(false);
+    })
+    uncompleteMarkers.forEach(function(marker){
+      marker.setVisible(false);
+    })
+  };
+
+  googleMaps.showAll = function() {
+
+    satMarkers.forEach(function(marker){
+      marker.setVisible(true);
+    })
+
+    unsatMarkers.forEach(function(marker){
+      marker.setVisible(true);
+    })
+    completeMarkers.forEach(function(marker){
+      marker.setVisible(true);
+    })
+    uncompleteMarkers.forEach(function(marker){
+      marker.setVisible(true);
+    })
+  };
+
+  googleMaps.showSat = function() {
+    googleMaps.clear();
+    satMarkers.forEach(function(marker){
+      marker.setVisible(true);
+    })
+  };
+  googleMaps.showUnSat = function() {
+    googleMaps.clear();
+    unsatMarkers.forEach(function(marker){
+      marker.setVisible(true);
+    })
+  };
+  googleMaps.showUnComp = function() {
+    googleMaps.clear();
+    uncompleteMarkers.forEach(function(marker){
+      marker.setVisible(true);
+    })
+  };
+  googleMaps.showComp = function() {
+    googleMaps.clear();
+    completeMarkers.forEach(function(marker){
+      marker.setVisible(true);
+    })
+  };
+
+
+
+
+
+
+  module.googleMaps = googleMaps;
 })(app);
