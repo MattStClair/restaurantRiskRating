@@ -2,13 +2,22 @@
   margin: 10%;
   padding: 25% 0;
 }
+
 .markerContent h1{
+  color: black;
   font-size: 2em;
 }
 .markerContent h2{
   font-size: 1em;
+  color: grey;
+}
+
+#adress {
+ color: grey;
+
 }
 .inspection {
   color: red;
+  font-weight: bold;
   margin-top: 2px;
 }
