@@ -73,12 +73,20 @@ var app = app || {};
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+  var windowContent = `<div class='markerContent'>
+                        <h1>${store.name}</h1>
+                        <h2>${store.phone}</h2>
+                        <p>${store.address}</p>
+                        <p class="inspection">${store.inspection_result}</p>
+
+                        </div>`;
 
 
   google.maps.event.addDomListener(window, 'resize', function() {
   var center = map.getCenter();
   google.maps.event.trigger(map, 'resize');
   map.setCenter(center);
+
 });
 
   var satMarkers = [];
@@ -100,11 +108,10 @@ var app = app || {};
       };
 
       var marker = new google.maps.Marker(markerOptions);
-      //marker.setMap(map);
       unsatMarkers.push(marker);
 
     var infoWindowOptions = {
-      content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
+      content:windowContent
     };
 
       var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
@@ -122,11 +129,10 @@ var app = app || {};
     };
 
     var marker = new google.maps.Marker(markerOptions);
-    //marker.setMap(map);
     satMarkers.push(marker);
 
-  var infoWindowOptions = {
-    content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
+    var infoWindowOptions = {
+    content: windowContent
   };
 
     var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
@@ -143,10 +149,9 @@ var app = app || {};
     };
 
     var marker = new google.maps.Marker(markerOptions);
-    //marker.setMap(map);
     completeMarkers.push(marker);
     var infoWindowOptions = {
-    content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
+    content: windowContent
   };
 
     var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
@@ -163,11 +168,10 @@ var app = app || {};
     };
 
     var marker = new google.maps.Marker(markerOptions);
-    //marker.setMap(map);
     uncompleteMarkers.push(marker);
 
     var infoWindowOptions = {
-    content: 'Name: ' + store.name + ' \n Inspection result: ' + store.inspection_result
+    content: windowContent
   };
 
     var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
@@ -182,9 +186,6 @@ var app = app || {};
       }
     })
 })
-
-
- console.log(completeMarkers);
 
 
   map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
@@ -247,11 +248,6 @@ var app = app || {};
       marker.setVisible(true);
     })
   };
-
-
-
-
-
 
   module.googleMaps = googleMaps;
 })(app);

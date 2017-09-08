@@ -2,3 +2,13 @@
   margin: 10%;
   padding: 25% 0;
 }
+.markerContent h1{
+  font-size: 2em;
+}
+.markerContent h2{
+  font-size: 1em;
+}
+.inspection {
+  color: red;
+  margin-top: 2px;
+}
