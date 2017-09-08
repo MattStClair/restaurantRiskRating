@@ -31,7 +31,7 @@
 #legend {
     font-family: Arial, sans-serif;
     background: #fff;
-    max-width: 19%; 
+    max-width: 19%;
     padding: .5em;
     color: black;
     font-size:.8em;
@@ -39,6 +39,13 @@
     border: 3px solid #000;
   }
 
+#home p {
+  width: 100%;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  padding: .2em;
+  background: rgba(0, 0, 0, .7);
+}
 @media screen and (min-width: 550px) {
   #about article {
     width: 48%;

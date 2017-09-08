@@ -46,45 +46,19 @@
 
     <section id="home">
       <h1>Welcome to Is It Gross?</h1>
-      <p>An app that uses King County's food establishment inspection data and plots on a google map the inspection results as emojis.</p>
-      <p>The app allows users to query their results by rating("Satisfactory" or "Unsatisfactory")</p>
+      <p>Have you ever had food poisoning before? Is it not one of the worst experiences ever? Well we have a solution!We have developed an app that uses King County's food establishment inspection data and plots on a google map the inspection results as emojis.The app allows users to query their results by rating("Satisfactory" or "Unsatisfactory"). These ratings rely on the inspection data that pertains to food handling in the kitchen. Unsatisfactory ratings mean the establishment has two or more food handling violations that could result in consumers becoming ill.</p>
     </section>
 
 
 
     <section id="search">
 
-      <div class="narrow">
-      <h2>Search to Find If Its Gross</h2>
-
-        <select id="resultsNum">
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="75">75</option>
-        </select>
-
-        <select id="filter">
-            <option value="all">All</option>
-            <option value="good">Good</option>
-            <option value="bad">Bad</option>
-        </select>
-
-        <div id="wrap">
-          <div class="search">
-            <input type="text" class="searchTerm" placeholder="Enter a Zip Code">
-          </div>
-        </div>
-
-        <button type="submit" class="searchButton">
-          <i class="fa fa-search"></i>
-        </button>
-      </div>
 
       <div id="floating-panel">
-     <input onclick="app.googleMaps.showUnSat();" type=button value="Show Unsatisfactory Rating">
-     <input onclick="app.googleMaps.showSat();" type=button value="Show Satisfactory Rating">
-     <input onclick="app.googleMaps.showAll();" type=button value="Show All">
-     </div>
+        <input onclick="app.googleMaps.showUnSat();" type=button value="Show Unsatisfactory Rating">
+        <input onclick="app.googleMaps.showSat();" type=button value="Show Satisfactory Rating">
+        <input onclick="app.googleMaps.showAll();" type=button value="Show All">
+      </div>
 
       <div id="map"></div>
       <div id="legend"><h3>Ratings</h3>
