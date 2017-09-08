@@ -6,8 +6,8 @@ var app = app || {};
 
   const googleMaps = {};
 
-    let latitude = 0;//default value
-    let longitude = 0;
+    let latitude = 47.615875599999995;
+    let longitude = -122.34344120000002;
 
     var iconBase = '/../images/';
 
@@ -73,13 +73,6 @@ var app = app || {};
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-  var windowContent = `<div class='markerContent'>
-                        <h1>${store.name}</h1>
-                        <h2>${store.phone}</h2>
-                        <p>${store.address}</p>
-                        <p class="inspection">${store.inspection_result}</p>
-
-                        </div>`;
 
 
   google.maps.event.addDomListener(window, 'resize', function() {
@@ -99,6 +92,13 @@ var app = app || {};
 .then((data) => {
 
     data.forEach(function(store) {
+      var windowContent = `<div class='markerContent'>
+      <h1>${store.name}</h1>
+      <h2>${store.phone}</h2>
+      <p id ='adress'>${store.address}</p>
+      <p class="inspection">${store.inspection_result}</p>
+      </div>`;
+
       switch (store.inspection_result){
             case 'Unsatisfactory':
       var markerOptions = {
