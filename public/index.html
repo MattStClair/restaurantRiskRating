@@ -55,9 +55,11 @@
 
 
       <div id="floating-panel">
-        <input onclick="app.googleMaps.showUnSat();" type=button value="Show Unsatisfactory Rating">
-        <input onclick="app.googleMaps.showSat();" type=button value="Show Satisfactory Rating">
-        <input onclick="app.googleMaps.showAll();" type=button value="Show All">
+        <ul>
+        <li><input onclick="app.googleMaps.showUnSat();" type=button value="Show Unsatisfactory Rating"></li>
+        <li><input onclick="app.googleMaps.showSat();" type=button value="Show Satisfactory Rating"></li>
+        <li><input onclick="app.googleMaps.showAll();" type=button value="Show All"></li>
+      </ul>
       </div>
 
       <div id="map"></div>

@@ -71,10 +71,13 @@
 
 #floating-panel {
   width: 100%;
-  display: inline;
-  margin: 0 20%;
-  text-align: center;
+  margin: 0 20% 0 20%;
   margin-bottom: -10px;
+  text-decoration: none;
+}
+#floating-panel li{
+  display: block;
+
 }
 
 #floating-panel input {
@@ -136,6 +139,10 @@ footer {
 
   #map {
     width: 80%;
+  }
+
+  #floating-panel li {
+    display: inline;
   }
 
 }
