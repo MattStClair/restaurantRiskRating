@@ -81,9 +81,9 @@
       </div>
 
       <div id="floating-panel">
-     <input type=button value="Hide Markers">
-     <input type=button value="Show All Markers">
-     <input type=button value="Delete Markers">
+     <input onclick="app.googleMaps.showUnSat();" type=button value="Show Unsatisfactory Rating">
+     <input onclick="app.googleMaps.showSat();" type=button value="Show Satisfactory Rating">
+     <input onclick="app.googleMaps.showAll();" type=button value="Show All">
      </div>
 
       <div id="map"></div>
